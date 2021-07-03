@@ -1,4 +1,5 @@
 import CanvasOne from 'CanvasOne'
+import CityScape from 'CityScape'
 import React from 'react'
 import {
   BrowserRouter as Router,
@@ -23,8 +24,14 @@ function App() {
         <nav>
           <Link to="/">Home</Link>
         </nav>
+        <nav>
+          <Link to="/cityscape">City Scape</Link>
+        </nav>
       </div>
       <Switch>
+        <Route path="/cityscape">
+          <CityScape />
+        </Route>
         <Route path="/">
           <CanvasOne />
         </Route>
@@ -32,5 +39,8 @@ function App() {
     </Router>
   )
 }
+
+// "module": "commonjs",
+// "target": "es6"
 
 export default App
