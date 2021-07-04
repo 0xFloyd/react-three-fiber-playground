@@ -1,5 +1,6 @@
 import CanvasOne from 'CanvasOne'
-import CityScape from 'CityScape'
+import DiamondGLTF from 'DiamondGLTF'
+import { PlaneSurface } from 'PlaneSurface'
 import React from 'react'
 import {
   BrowserRouter as Router,
@@ -25,12 +26,18 @@ function App() {
           <Link to="/">Home</Link>
         </nav>
         <nav>
-          <Link to="/cityscape">City Scape</Link>
+          <Link to="/diamondgltf">GLTF Model</Link>
+        </nav>
+        <nav>
+          <Link to="/planesurface">Plane Surface</Link>
         </nav>
       </div>
       <Switch>
-        <Route path="/cityscape">
-          <CityScape />
+        <Route path="/planesurface">
+          <PlaneSurface />
+        </Route>
+        <Route path="/diamondgltf">
+          <DiamondGLTF />
         </Route>
         <Route path="/">
           <CanvasOne />

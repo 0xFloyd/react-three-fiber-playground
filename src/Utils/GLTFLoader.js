@@ -1,4 +1,4 @@
-/* eslint-disable no-restricted-globals */
+/* eslint-disable */
 import {
   AnimationClip,
   Bone,
