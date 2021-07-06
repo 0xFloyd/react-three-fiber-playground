@@ -121,7 +121,7 @@ export const PlaneSurface = () => {
           </EffectComposer>
         </Physics>
       </Canvas>
-      <Stats />
+      {/* <Stats /> */}
     </>
   )
 }
