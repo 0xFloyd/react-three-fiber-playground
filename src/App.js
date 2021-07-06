@@ -8,6 +8,8 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import { GlowingTriangles } from './GlowingTriangles/GlowingTriangles'
+import ReflectionTest from './ReflectionTest'
 
 function App() {
   return (
@@ -22,17 +24,29 @@ function App() {
           backgroundColor: 'rgba(255, 0, 0, 0.3)'
         }}
       >
-        <nav>
+        <nav style={{ display: 'inline-block' }}>
           <Link to="/">Home</Link>
         </nav>
-        <nav>
+        <nav style={{ display: 'inline-block' }}>
           <Link to="/diamondgltf">GLTF Model</Link>
         </nav>
-        <nav>
+        <nav style={{ display: 'inline-block' }}>
           <Link to="/planesurface">Plane Surface</Link>
+        </nav>
+        <nav style={{ display: 'inline-block' }}>
+          <Link to="/reflectiontest">Reflection</Link>
+        </nav>
+        <nav style={{ display: 'inline-block' }}>
+          <Link to="/glowingtriangles">Glowing Triangle</Link>
         </nav>
       </div>
       <Switch>
+        <Route path="/glowingtriangles">
+          <GlowingTriangles />
+        </Route>
+        <Route path="/reflectiontest">
+          <ReflectionTest />
+        </Route>
         <Route path="/planesurface">
           <PlaneSurface />
         </Route>
