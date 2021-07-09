@@ -8,6 +8,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import StarterCanvas from 'Utils/StarterCanvas'
 import { GlowingTriangles } from './GlowingTriangles/GlowingTriangles'
 import ReflectionTest from './ReflectionTest'
 
@@ -24,23 +25,29 @@ function App() {
           backgroundColor: 'rgba(255, 0, 0, 0.3)'
         }}
       >
-        <nav style={{ display: 'inline-block' }}>
+        <nav style={{ display: 'inline-block', marginRight: '5px' }}>
           <Link to="/">Home</Link>
         </nav>
-        <nav style={{ display: 'inline-block' }}>
+        <nav style={{ display: 'inline-block', marginRight: '5px' }}>
+          <Link to="/startercanvas">Start Canvas</Link>
+        </nav>
+        <nav style={{ display: 'inline-block', marginRight: '5px' }}>
           <Link to="/diamondgltf">GLTF Model</Link>
         </nav>
-        <nav style={{ display: 'inline-block' }}>
+        <nav style={{ display: 'inline-block', marginRight: '5px' }}>
           <Link to="/planesurface">Plane Surface</Link>
         </nav>
-        <nav style={{ display: 'inline-block' }}>
+        <nav style={{ display: 'inline-block', marginRight: '5px' }}>
           <Link to="/reflectiontest">Reflection</Link>
         </nav>
-        <nav style={{ display: 'inline-block' }}>
+        <nav style={{ display: 'inline-block', marginRight: '5px' }}>
           <Link to="/glowingtriangles">Glowing Triangle</Link>
         </nav>
       </div>
       <Switch>
+        <Route path="/startercanvas">
+          <StarterCanvas />
+        </Route>
         <Route path="/glowingtriangles">
           <GlowingTriangles />
         </Route>

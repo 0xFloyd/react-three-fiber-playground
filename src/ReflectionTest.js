@@ -98,19 +98,16 @@ export default function ReflectionTest() {
       >
         <color attach="background" args={['black']} />
         <fog attach="fog" args={['black', 15, 20]} />
+        <group position={[0, -1, 0]}>
+          <VideoText {...store} position={[0, 1.3, -2]} />
+        </group>
+        <ambientLight intensity={0.5} />
+        <spotLight position={[0, 10, 0]} intensity={0.3} />
+        <directionalLight position={[-20, 0, -10]} intensity={0.7} />
+        <Intro start={ready && clicked} set={setReady} />
         <Suspense fallback={null}>
           <Physics debug={{ color: 'black', scale: 1 }}>
-            <group position={[0, -1, 0]}>
-              <VideoText {...store} position={[0, 1.3, -2]} />
-              <Ground />
-            </group>
-            <ambientLight intensity={0.5} />
-            <spotLight position={[0, 10, 0]} intensity={0.3} />
-            <directionalLight
-              position={[-20, 0, -10]}
-              intensity={0.7}
-            />
-            <Intro start={ready && clicked} set={setReady} />
+            <Ground />
           </Physics>
         </Suspense>
         <Stats showPanel={0} className="stats" />
