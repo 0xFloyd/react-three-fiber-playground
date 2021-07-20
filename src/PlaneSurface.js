@@ -13,7 +13,7 @@ import { Rig, Triangle } from './GlowingTriangles/GlowingTriangles'
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import { KernelSize } from 'postprocessing'
 
-function Plane(props) {
+export function Plane(props) {
   const [ref] = useBox(() => ({
     ...props
   }))
@@ -24,7 +24,7 @@ function Plane(props) {
   return (
     <mesh receiveShadow ref={ref}>
       <boxBufferGeometry {...props} />
-      {/* <meshStandardMaterial /> */}
+      <meshStandardMaterial color="black" />
     </mesh>
   )
 }
@@ -40,10 +40,7 @@ function Plane(props) {
 // }
 
 function Ground() {
-  const [floor, normal] = useTexture([
-    '/SurfaceImperfections003_1K_var1.jpg',
-    '/SurfaceImperfections003_1K_Normal.jpg'
-  ])
+  const [floor, normal] = useTexture([])
 
   return (
     <Reflector
@@ -77,7 +74,7 @@ export const PlaneSurface = () => {
       <Canvas
         dpr={[1, 2]}
         shadows
-        camera={{ position: [-5, 5, 5], fov: 50 }}
+        camera={{ position: [-5, 5, 5], fov: 50 }} // near: 7, far: 15
         concurrent
         gl={{ alpha: false }}
       >
@@ -89,11 +86,11 @@ export const PlaneSurface = () => {
         <color attach="background" args={['black']} />
         <fog attach="fog" args={['black', 50, 100]} />
         <ambientLight intensity={0.5} />
-        <spotLight position={[0, 10, 0]} intensity={0.3} />
+        {/* <spotLight position={[0, 10, 0]} intensity={0.3} /> */}
         <directionalLight position={[-20, 0, -10]} intensity={0.7} />
         <Physics debug={{ color: 'black', scale: 1 }}>
           <Player />
-          <Ground />
+          {/* <Ground /> */}
           {/* <Cube position={[0, 0, 0]} /> */}
           <Plane args={[100, 1, 100]} position={[0, -1.01, 0]} />
           <Rig>
@@ -107,13 +104,13 @@ export const PlaneSurface = () => {
           </Rig>
           <EffectComposer multisampling={8}>
             <Bloom
-              kernelSize={3}
+              kernelSize={1}
               luminanceThreshold={0}
               luminanceSmoothing={0.4}
               intensity={0.6}
             />
             <Bloom
-              kernelSize={KernelSize.HUGE}
+              kernelSize={2}
               luminanceThreshold={0}
               luminanceSmoothing={0}
               intensity={0.5}

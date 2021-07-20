@@ -9,6 +9,7 @@ import {
   Link
 } from 'react-router-dom'
 import StarterCanvas from 'Utils/StarterCanvas'
+import WelcomePageCity from 'WelcomePageCity'
 import { GlowingTriangles } from './GlowingTriangles/GlowingTriangles'
 import ReflectionTest from './ReflectionTest'
 
@@ -61,7 +62,7 @@ function App() {
           <DiamondGLTF />
         </Route>
         <Route path="/">
-          <CanvasOne />
+          <WelcomePageCity />
         </Route>
       </Switch>
     </Router>

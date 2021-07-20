@@ -29,8 +29,8 @@ const Earth = () => {
   ])
   //   useFrame(({ clock }) => (ref.current.rotation.y += 0.01))
   useFrame(({ clock }) => {
-    ref.current.rotation.x = Math.sin(clock.getElapsedTime()) * 0.8
-    ref.current.rotation.z = Math.sin(clock.getElapsedTime()) * 0.8
+    // ref.current.rotation.x = Math.sin(clock.getElapsedTime()) * 0.8
+    // ref.current.rotation.z = Math.sin(clock.getElapsedTime()) * 0.8
     ref.current.rotation.y += 0.01
   })
 
@@ -81,8 +81,14 @@ function MyRectAreaLight(props) {
 
   // const rectLightHelper = new THREE.RectAreaLightHelper( rectLightRef );
   // How does this work?
-  useHelper(rectLightRef, RectAreaLightHelper, props)
-  return <rectAreaLight ref={rectLightRef} {...props} />
+  // useHelper(rectLightRef, RectAreaLightHelper, props)
+  return (
+    <rectAreaLight
+      ref={rectLightRef}
+      {...props}
+      onUpdate={(self) => self.lookAt(props.position)}
+    />
+  )
 }
 
 export default function StarterCanvas() {

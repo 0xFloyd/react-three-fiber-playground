@@ -32,5 +32,9 @@ body {
     #200f20 40%,
     #090b1f 80%,
     #050523 100%
-  );
+  )
+}
+.nav-link {
+  display: 'inline-block';
+  margin-right: 5px;
 }
